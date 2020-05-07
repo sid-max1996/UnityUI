@@ -16,7 +16,6 @@ public class MainController : MonoBehaviour {
         isWild = true;
         btn1.onClick.AddListener(ChangeState);
         btn2.onClick.AddListener(WildClick);
-        btn1.GetComponentInChildren<Text>().text = "Приручить";
     }
 
     private void OnRectTransformDimensionsChange()
