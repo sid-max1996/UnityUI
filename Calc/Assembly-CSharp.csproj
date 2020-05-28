@@ -63,7 +63,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\MainControl.cs" />
+    <Compile Include="Assets\Scripts\ButtonController.cs" />
+    <Compile Include="Assets\Scripts\InputController.cs" />
+    <Compile Include="Assets\Scripts\MainController.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/sid-m/Documents/Diploma/UnityUI/Calc/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

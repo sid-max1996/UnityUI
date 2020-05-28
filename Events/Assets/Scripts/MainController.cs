@@ -3,66 +3,63 @@ using UnityEngine.UI;
 
 public class MainController : MonoBehaviour {
 
-    bool isWild;
+    bool isWild = true;
     Canvas canvas;
     Button btn1;
     Button btn2;
+    RectTransform btn2Tr;
+    RectTransform canvasTr;
 
-    private void Start()
+    void Awake()
     {
         canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
         btn1 = GameObject.Find("Button1").GetComponent<Button>();
         btn2 = GameObject.Find("Button2").GetComponent<Button>();
-        isWild = true;
+        btn2Tr = btn2.GetComponent<RectTransform>();
+        canvasTr = canvas.GetComponent<RectTransform>();
         btn1.onClick.AddListener(ChangeState);
         btn2.onClick.AddListener(WildClick);
-    }
-
-    private void OnRectTransformDimensionsChange()
-    {
-        Vector3 pos = btn2.transform.localPosition;
-        Rect btnRect = btn2.GetComponent<RectTransform>().rect;
-        pos.x = 0 - btnRect.width / 2;
-        pos.y = 0 - btnRect.height / 2;
-        btn2.transform.localPosition = pos;
     }
 
     public void ChangeState ()
     {
         Debug.Log("ChangeState");
-        Text labelBtn1 = btn1.GetComponentInChildren<Text>();
         if (isWild)
         {
-            isWild = false;
-            labelBtn1.text = "Сброс";
             btn2.onClick.RemoveListener(WildClick);
             btn2.onClick.AddListener(QuitApplication);
         }
         else
         {
-            isWild = true;
-            labelBtn1.text = "Приручить";
             btn2.onClick.RemoveListener(QuitApplication);
             btn2.onClick.AddListener(WildClick);
         }
+        Text labelBtn1 = btn1.GetComponentInChildren<Text>();
+        labelBtn1.text = isWild ? "Сброс" : "Приручить";
+        isWild = !isWild;
     }
 
-    public void WildClick()
+    void WildClick()
     {
         Debug.Log("WildClick");
-        Vector3 pos = btn2.transform.localPosition;
-        Rect btnRect = btn2.GetComponent<RectTransform>().rect;
-        Rect canvasRect = canvas.GetComponent<RectTransform>().rect;
-        pos.x = Random.Range(-1f, 1f) * (canvasRect.width / 2 - btnRect.width);
-        pos.y = Random.Range(-1f, 1f) * (canvasRect.height / 2 - btnRect.height);
-        Debug.Log("pos.x = " + pos.x);
-        Debug.Log("pos.y = " + pos.y);
-        btn2.transform.localPosition = pos;
+        float xCoeff = canvasTr.rect.width / 2 - btn2Tr.rect.width;
+        float x = Random.Range(-1f, 1f) * xCoeff;
+        float yCoeff = canvasTr.rect.height / 2 - btn2Tr.rect.height;
+        float y = Random.Range(-1f, 1f) * yCoeff;
+        btn2.transform.localPosition = new Vector3(x, y, 0);
     }
 
-    public void QuitApplication()
+    void QuitApplication()
     {
         Debug.Log("QuitApplication");
         Application.Quit();
+    }
+
+    void OnRectTransformDimensionsChange()
+    {
+        if (btn2Tr == null) return;
+        float x = 0 - btn2Tr.rect.width / 2;
+        float y = 0 - btn2Tr.rect.height / 2;
+        btn2.transform.localPosition = new Vector3(x, y, 0);
     }
 }

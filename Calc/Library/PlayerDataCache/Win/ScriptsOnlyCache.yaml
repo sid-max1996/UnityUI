@@ -1,7 +1,9 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - MainControl
+    - ButtonController
+    - InputController
+    - MainController
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -24,6 +26,8 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.InputField
     - UnityEngine.UI.Text
+    com.unity.multiplayer-hlapi.Runtime.dll:
+    - UnityEngine.Networking.NetworkCallbacks
   sceneClasses:
     Assets/Scenes/MainScene.unity:
     - Class: 1
@@ -43,25 +47,29 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 14266}
+      Script: {instanceID: 11186}
     - Class: 114
-      Script: {instanceID: 14468}
+      Script: {instanceID: 11392}
     - Class: 114
-      Script: {instanceID: 14516}
+      Script: {instanceID: 11440}
     - Class: 114
-      Script: {instanceID: 15016}
+      Script: {instanceID: 11952}
     - Class: 114
-      Script: {instanceID: 15516}
+      Script: {instanceID: 12040}
     - Class: 114
-      Script: {instanceID: 15728}
+      Script: {instanceID: 12468}
     - Class: 114
-      Script: {instanceID: 15764}
+      Script: {instanceID: 12690}
     - Class: 114
-      Script: {instanceID: 15968}
+      Script: {instanceID: 12726}
     - Class: 114
-      Script: {instanceID: 16084}
+      Script: {instanceID: 12936}
     - Class: 114
-      Script: {instanceID: 16542}
+      Script: {instanceID: 13056}
+    - Class: 114
+      Script: {instanceID: 13518}
+    - Class: 114
+      Script: {instanceID: 14988}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -189,18 +197,6 @@ ScriptsOnlyBuild:
     assemblyName: com.unity.multiplayer-hlapi.Runtime.dll
     namespaceName: UnityEngine.Networking
     className: NetworkTransform
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: UnityEngine.Advertisements.dll
-    namespaceName: UnityEngine.Advertisements
-    className: CallbackExecutor
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: UnityEngine.Advertisements.dll
-    namespaceName: UnityEngine.Advertisements.Editor
-    className: Placeholder
   - hash:
       serializedVersion: 2
       Hash: 7ab0e790220bdca831fdd886b339039d
@@ -333,6 +329,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Selectable
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ButtonController
   - hash:
       serializedVersion: 2
       Hash: 265cf27ba050d55ff33a8acab4ded6c0
@@ -488,7 +490,7 @@ ScriptsOnlyBuild:
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: MainControl
+    className: MainController
   - hash:
       serializedVersion: 2
       Hash: 3b760e6526e13f7504f59e210145899a
@@ -657,7 +659,13 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: InputController
   platform: 5
   scenePathNames:
   - Assets/Scenes/MainScene.unity
-  playerPath: C:/Users/sid-m/Documents/Diploma/UnityUI/Calc/Bin/Calc.exe
+  playerPath: C:/Users/sid-m/Documents/Diploma/UnityUI/Calc/Build/Calc.exe
