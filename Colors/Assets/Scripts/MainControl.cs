@@ -5,18 +5,16 @@ public class MainControl : MonoBehaviour
 {
     Text colorText;
     Image colorRectangle;
-
     Slider sliderAlpha;
     Slider sliderRed;
     Slider sliderGreen;
     Slider sliderBlue;
     Slider sliderGray;
 
-    void Start()
+    void Awake()
     {
         colorText = GameObject.Find("ColorText").GetComponent<Text>();
         colorRectangle = GameObject.Find("ColorRectangle").GetComponent<Image>();
-
         sliderAlpha = GameObject.Find("SliderAlpha").GetComponent<Slider>();
         sliderAlpha.onValueChanged.AddListener(onSliderValueChangeRGBA);
         sliderRed = GameObject.Find("SliderRed").GetComponent<Slider>();

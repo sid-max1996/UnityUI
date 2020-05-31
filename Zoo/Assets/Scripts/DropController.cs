@@ -3,36 +3,31 @@ using UnityEngine.EventSystems;
 
 public class DropController : MonoBehaviour, IDropHandler
 {
-    private void AddChildOnDropEnd(GameObject obj, DragController controller)
+    private void AddChild(GameObject obj, DragController targetScript)
     {
-        Vector2 anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
-        obj.GetComponent<RectTransform>().anchoredPosition = anchoredPosition;
+        var ancdPos = GetComponent<RectTransform>().anchoredPosition;
+        obj.GetComponent<RectTransform>().anchoredPosition = ancdPos;
         obj.transform.SetParent(transform);
-        controller.isAlowDrag = false;
+        targetScript.isAllowDrag = false;
     }
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("OnDrop");
         GameObject target = eventData.pointerDrag;
-        var targetController = target.GetComponent<DragController>();
-        if (!targetController.isAlowDrag)
-            return;
+        var targetScript = target.GetComponent<DragController>();
+        if (!targetScript.isAllowDrag) return;
         if (transform.childCount == 0)
-        {
-            AddChildOnDropEnd(target, targetController);
-        } else
+            AddChild(target, targetScript);
+        else
         {
             var child = transform.GetChild(0).gameObject;
-            if (target == child)
-                return;
             var childController = child.GetComponent<DragController>();
-            if (childController.powerPoints >= targetController.powerPoints)
+            if (childController.powerPoints >= targetScript.powerPoints)
             {
                 Destroy(target);
             } else
             {
                 Destroy(child);
-                AddChildOnDropEnd(target, targetController);
+                AddChild(target, targetScript);
             }
         }
     }

@@ -511,4 +511,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/MainScene.unity
-  playerPath: C:/Users/sid-m/Documents/Diploma/Colors/Build/Colors.apk
+  playerPath: C:/Users/sid-m/Documents/Diploma/UnityUI/Colors/Build/Colors.apk

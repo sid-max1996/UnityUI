@@ -4,15 +4,14 @@ using UnityEngine.EventSystems;
 public class DragController : MonoBehaviour,
     IDragHandler, IEndDragHandler, IBeginDragHandler
 {
-    public bool isAlowDrag = true;
     public int powerPoints = 0;
-
-    Vector3 startPosition;
-    Transform startParent;
     CanvasGroup canvasGroup;
     Transform rootParent;
+    public bool isAllowDrag = true;
+    Vector3 startPosition;
+    Transform startParent;
 
-    private void Start()
+    void Awake()
     {
         rootParent = transform.parent;
         canvasGroup = GetComponent<CanvasGroup>();
@@ -20,33 +19,27 @@ public class DragController : MonoBehaviour,
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (!isAlowDrag) 
-            return;
-        Debug.Log("OnBeginDrag");
-        startParent = transform.parent;
-        startPosition = transform.position;
+        if (!isAllowDrag) return;
         transform.SetParent(rootParent);
         transform.SetAsLastSibling();
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
+        startParent = transform.parent;
+        startPosition = transform.position;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (!isAlowDrag)
-            return;
+        if (!isAllowDrag) return;
         transform.position = eventData.position;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("OnEndDrag");
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
-        if (!isAlowDrag)
-            return;
+        if (!isAllowDrag) return;
         var dist = eventData.pointerEnter;
-        Debug.Log(dist.ToString());
         if (dist.name != "Viewport")
         {
             transform.SetParent(startParent);

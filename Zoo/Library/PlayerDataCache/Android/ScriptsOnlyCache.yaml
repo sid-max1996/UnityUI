@@ -472,7 +472,7 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: c7d1d318c293c7a6ee6e1012b182d85b
+      Hash: ec88567acf9afb6ef3a77a56a53e4a91
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DragController
@@ -587,4 +587,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/sid-m/Documents/Diploma/UnityUI/Zoo/Zoo.apk
+  playerPath: C:/Users/sid-m/Documents/Diploma/UnityUI/Zoo/Build/Zoo.apk

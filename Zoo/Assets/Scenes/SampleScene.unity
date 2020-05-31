@@ -202,8 +202,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 197279890}
   m_HandleRect: {fileID: 197279889}
   m_Direction: 0
-  m_Value: 1
-  m_Size: 1
+  m_Value: 0
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -887,8 +887,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de8805ecb48b53d4abece28aa607b87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAlowDrag: 1
   powerPoints: 2
+  isAllowDrag: 1
 --- !u!225 &855406069
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -982,8 +982,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1172032195}
   m_HandleRect: {fileID: 1172032194}
   m_Direction: 2
-  m_Value: 0.9999963
-  m_Size: 0.98146206
+  m_Value: 1.0000005
+  m_Size: 0.67446756
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1310,8 +1310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de8805ecb48b53d4abece28aa607b87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAlowDrag: 1
   powerPoints: 1
+  isAllowDrag: 1
 --- !u!225 &1475164441
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1415,8 +1415,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de8805ecb48b53d4abece28aa607b87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAlowDrag: 1
   powerPoints: 0
+  isAllowDrag: 1
 --- !u!225 &1493197926
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1520,8 +1520,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de8805ecb48b53d4abece28aa607b87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAlowDrag: 1
   powerPoints: 3
+  isAllowDrag: 1
 --- !u!225 &1573315037
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2042,6 +2042,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.000061035156, y: -0.000061035156}
   m_SizeDelta: {x: 0, y: 894}
   m_Pivot: {x: 0, y: 1}
