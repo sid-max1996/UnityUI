@@ -8,13 +8,18 @@ public class OtherController : MonoBehaviour {
 
     private void Awake()
     {
-        Text textField = GameObject.Find("TextCount").GetComponent<Text>();
-        textField.text = "Количество переходов на данную сцену равно " + ++count;
-        Text otherTitle = GameObject.Find("OtherTitle").GetComponent<Text>();
+        Text textField = 
+            GameObject.Find("TextCount").GetComponent<Text>();
+        textField.text = 
+            "Количество переходов на данную сцену равно " + ++count;
+        Text otherTitle = 
+            GameObject.Find("OtherTitle").GetComponent<Text>();
         otherTitle.text = ScenesStore.otherSceneTitle;
-        Button backBtn = GameObject.Find("ButtonBack").GetComponent<Button>();
+        Button backBtn =
+            GameObject.Find("ButtonBack").GetComponent<Button>();
+        LoadSceneMode singleMode = LoadSceneMode.Single;
         backBtn.onClick.AddListener(delegate {
-            SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
+            SceneManager.LoadScene("MainScene", singleMode);
         });
     }
 }

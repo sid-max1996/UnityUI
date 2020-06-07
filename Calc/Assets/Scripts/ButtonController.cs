@@ -11,10 +11,14 @@ public class ButtonController : MonoBehaviour, IPointerClickHandler
 
     void Awake()
     {
-        operatorLabel = GameObject.Find("OperatorText").GetComponent<Text>();
-        answerLabel = GameObject.Find("AnswerText").GetComponent<Text>();
-        input1 = GameObject.Find("InputField1").GetComponent<InputField>();
-        input2 = GameObject.Find("InputField2").GetComponent<InputField>();
+        operatorLabel = 
+            GameObject.Find("OperatorText").GetComponent<Text>();
+        answerLabel = 
+            GameObject.Find("AnswerText").GetComponent<Text>();
+        input1 = 
+            GameObject.Find("InputField1").GetComponent<InputField>();
+        input2 = 
+            GameObject.Find("InputField2").GetComponent<InputField>();
     }
 
     public void OnPointerClick(PointerEventData eventData)

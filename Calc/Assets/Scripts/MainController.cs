@@ -8,20 +8,26 @@ public class MainController : MonoBehaviour {
 
     void Awake()
     {
-        operatorLabel = GameObject.Find("OperatorText").GetComponent<Text>();
-        eqButton = GameObject.Find("Button5").GetComponent<Button>();
+        operatorLabel = 
+            GameObject.Find("OperatorText").GetComponent<Text>();
+        eqButton = 
+            GameObject.Find("Button5").GetComponent<Button>();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) ||
-            Input.GetKeyDown(KeyCode.Equals) || Input.GetKeyDown(KeyCode.KeypadEquals))
+        if (Input.GetKeyDown(KeyCode.Return) ||
+            Input.GetKeyDown(KeyCode.KeypadEnter) ||
+            Input.GetKeyDown(KeyCode.Equals) ||
+            Input.GetKeyDown(KeyCode.KeypadEquals))
             eqButton.OnPointerClick(null);
 
-        if (Input.GetKeyDown(KeyCode.Plus) || Input.GetKeyDown(KeyCode.KeypadPlus))
+        if (Input.GetKeyDown(KeyCode.Plus) ||
+            Input.GetKeyDown(KeyCode.KeypadPlus))
             operatorLabel.text = "+";
 
-        if (Input.GetKeyDown(KeyCode.Minus) || Input.GetKeyDown(KeyCode.KeypadMinus))
+        if (Input.GetKeyDown(KeyCode.Minus) ||
+            Input.GetKeyDown(KeyCode.KeypadMinus))
             operatorLabel.text = "-";
 
         if (Input.GetKeyDown(KeyCode.KeypadMultiply))

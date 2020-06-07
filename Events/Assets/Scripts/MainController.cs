@@ -23,7 +23,6 @@ public class MainController : MonoBehaviour {
 
     public void ChangeState ()
     {
-        Debug.Log("ChangeState");
         if (isWild)
         {
             btn2.onClick.RemoveListener(WildClick);
@@ -41,7 +40,6 @@ public class MainController : MonoBehaviour {
 
     void WildClick()
     {
-        Debug.Log("WildClick");
         float xCoeff = canvasTr.rect.width / 2 - btn2Tr.rect.width;
         float x = Random.Range(-1f, 1f) * xCoeff;
         float yCoeff = canvasTr.rect.height / 2 - btn2Tr.rect.height;
@@ -51,7 +49,6 @@ public class MainController : MonoBehaviour {
 
     void QuitApplication()
     {
-        Debug.Log("QuitApplication");
         Application.Quit();
     }
 

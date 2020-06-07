@@ -27,16 +27,24 @@ public class MainController : MonoBehaviour {
         resetBtn.onClick.AddListener(ResetTimer);
     }
 
-    void Update()
+    void ToogleTimer()
     {
-        if (!checkbox.isOn)
-            clockText.text = System.DateTime.Now.ToLongTimeString();
-        else if (isRunTimer)
+        isRunTimer = !isRunTimer;
+        if (isRunTimer && pauseTime.HasValue)
         {
-            TimeSpan s = DateTime.Now - startTime - pauseSpan;
-            clockText.text = string.Format("{0}:{1}", s.Minutes * 60 +
-                s.Seconds, "0" + s.Milliseconds.ToString()[0]);
+            pauseSpan += DateTime.Now - pauseTime.Value;
+            pauseTime = null;
         }
+        else if (!isRunTimer)
+            pauseTime = DateTime.Now;
+    }
+
+    void ResetTimer()
+    {
+        startTime = DateTime.Now;
+        pauseSpan = TimeSpan.Zero;
+        pauseTime = null;
+        clockText.text = "00:00";
     }
 
     void onCheckBoxToogle(bool val)
@@ -56,23 +64,15 @@ public class MainController : MonoBehaviour {
         }
     }
 
-    void ToogleTimer()
+    void Update()
     {
-        isRunTimer = !isRunTimer;
-        if (isRunTimer && pauseTime.HasValue)
+        if (!checkbox.isOn)
+            clockText.text = System.DateTime.Now.ToLongTimeString();
+        else if (isRunTimer)
         {
-            pauseSpan += DateTime.Now - pauseTime.Value;
-            pauseTime = null;
+            TimeSpan s = DateTime.Now - startTime - pauseSpan;
+            clockText.text = string.Format("{0}:{1}", s.Minutes * 60 +
+                s.Seconds, "0" + s.Milliseconds.ToString()[0]);
         }
-        else if (!isRunTimer)
-            pauseTime = DateTime.Now;
-    }
-
-    void ResetTimer()
-    {
-        startTime = DateTime.Now;
-        pauseSpan = TimeSpan.Zero;
-        pauseTime = null;
-        clockText.text = "00:00";
     }
 }

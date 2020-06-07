@@ -5,15 +5,19 @@ using UnityEngine.SceneManagement;
 public class MainController : MonoBehaviour {
     void Awake()
     {
-        Text mainTitle = GameObject.Find("MainTitle").GetComponent<Text>();
+        Text mainTitle = 
+            GameObject.Find("MainTitle").GetComponent<Text>();
         mainTitle.text = ScenesStore.mainSceneTitle;
-        Button nextBtn = GameObject.Find("ButtonNext").GetComponent<Button>();
+        LoadSceneMode singleMode = LoadSceneMode.Single;
+        Button nextBtn = 
+            GameObject.Find("ButtonNext").GetComponent<Button>();
         nextBtn.onClick.AddListener(delegate {
-            SceneManager.LoadScene("OtherScene", LoadSceneMode.Single);
+            SceneManager.LoadScene("OtherScene", singleMode);
         });
-        Button settBtn = GameObject.Find("ButtonSettings").GetComponent<Button>();
+        Button settBtn = 
+            GameObject.Find("ButtonSettings").GetComponent<Button>();
         settBtn.onClick.AddListener(delegate {
-            SceneManager.LoadScene("SettingsScene", LoadSceneMode.Single);
+            SceneManager.LoadScene("SettingsScene", singleMode);
         });
     }
 }

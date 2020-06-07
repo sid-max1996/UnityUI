@@ -13,17 +13,24 @@ public class MainControl : MonoBehaviour
 
     void Awake()
     {
-        colorText = GameObject.Find("ColorText").GetComponent<Text>();
-        colorRectangle = GameObject.Find("ColorRectangle").GetComponent<Image>();
-        sliderAlpha = GameObject.Find("SliderAlpha").GetComponent<Slider>();
+        colorText = 
+            GameObject.Find("ColorText").GetComponent<Text>();
+        colorRectangle = 
+            GameObject.Find("ColorRectangle").GetComponent<Image>();
+        sliderAlpha = 
+            GameObject.Find("SliderAlpha").GetComponent<Slider>();
         sliderAlpha.onValueChanged.AddListener(onSliderValueChangeRGBA);
-        sliderRed = GameObject.Find("SliderRed").GetComponent<Slider>();
+        sliderRed = 
+            GameObject.Find("SliderRed").GetComponent<Slider>();
         sliderRed.onValueChanged.AddListener(onSliderValueChangeRGBA);
-        sliderGreen = GameObject.Find("SliderGreen").GetComponent<Slider>();
+        sliderGreen =
+            GameObject.Find("SliderGreen").GetComponent<Slider>();
         sliderGreen.onValueChanged.AddListener(onSliderValueChangeRGBA);
-        sliderBlue = GameObject.Find("SliderBlue").GetComponent<Slider>();
+        sliderBlue = 
+            GameObject.Find("SliderBlue").GetComponent<Slider>();
         sliderBlue.onValueChanged.AddListener(onSliderValueChangeRGBA);
-        sliderGray = GameObject.Find("SliderGray").GetComponent<Slider>();
+        sliderGray = 
+            GameObject.Find("SliderGray").GetComponent<Slider>();
         sliderGray.onValueChanged.AddListener(onSliderValueChangeGray);
     }
 
@@ -43,7 +50,8 @@ public class MainControl : MonoBehaviour
         sliderRed.value = value;
         sliderGreen.value = value;
         sliderBlue.value = value;
-        var newColor = new Color(value, value, value, sliderAlpha.value);
+        var newColor = 
+            new Color(value, value, value, sliderAlpha.value);
         colorRectangle.color = newColor;
         colorText.text = ColorUtility.ToHtmlStringRGBA(newColor);
     }

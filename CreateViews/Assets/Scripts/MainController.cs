@@ -41,19 +41,30 @@ public class MainController : MonoBehaviour
         gameObject.transform.SetParent(content.transform);
 
         var rt = img.GetComponent<RectTransform>();
-        rt.sizeDelta = new Vector2(100, 100);
-        var lEdge = RectTransform.Edge.Left;
-        var rEdge = RectTransform.Edge.Right;
-        var tEdge = RectTransform.Edge.Top;
+        var sX = transform.localScale.x;
+        var sY = transform.localScale.y;
+        int size = 100;
+        rt.sizeDelta = new Vector2(sX * size, sY * size);
+        int offsetX = 0;
         if (leftTg.isOn)
-            rt.SetInsetAndSizeFromParentEdge(lEdge, 0, rt.rect.width);
-        else if (rightTg.isOn)
-            rt.SetInsetAndSizeFromParentEdge(rEdge, 0, rt.rect.width);
-        rt.SetInsetAndSizeFromParentEdge(tEdge, 0, rt.rect.height);
+        {
+            rt.anchorMin = new Vector2(0, 1);
+            rt.anchorMax = new Vector2(0, 1);
+            offsetX = size / 2;
+        } else if (rightTg.isOn) {
+            rt.anchorMin = new Vector2(1, 1);
+            rt.anchorMax = new Vector2(1, 1);
+            offsetX = -size / 2;
+        } else
+        {
+            rt.anchorMin = new Vector2(0.5f, 1);
+            rt.anchorMax = new Vector2(0.5f, 1);
+        }
+        rt.anchoredPosition = new Vector2(0, 0);
         Vector3 v = gameObject.transform.localPosition;
-        v.x = centerTg.isOn ? 0 : v.x;
         var count = content.transform.childCount - 1;
-        v.y -= rt.rect.height * 1.3f * count;
+        v.y -= (size / 2) + size * 1.2f * count;
+        v.x += offsetX;
         gameObject.transform.localPosition = v;
     }
 }

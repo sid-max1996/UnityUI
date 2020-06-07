@@ -5,8 +5,8 @@ public class DragController : MonoBehaviour,
     IDragHandler, IEndDragHandler, IBeginDragHandler
 {
     public int powerPoints = 0;
-    CanvasGroup canvasGroup;
     Transform rootParent;
+    CanvasGroup canvasGroup;
     public bool isAllowDrag = true;
     Vector3 startPosition;
     Transform startParent;
